@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" type="module" defer></script>
+  <title>AOS Simulator</title>
+</head>
+<body>
+  <h1>AOS Simulator!</h1>
+  <div class="flex">
+    <div>
+      <img src="" class="fighter-image" id="fighterimage">
+    </div>
+    <label for="fighter">Choose a fighter:</label>
+    <select name="fighter" id="fighter-selector">
+      <option value="none"></option>
+      <option value="stormcastVindictor">Stormcast Vindictor</option>
+      <option value="gutrippa">Gutrippa</option>
+    </select>
+    <div>
+      <img src="" class="fighter-image" id="opponentimage">
+    </div>
+    <label for="fighter" id="opponentname">Opponent: </label>
+    <!-- <select name="opponent" id="opponent-selector">
+      <option value="none">None</option>
+      <option value="stormcastVindictor">Stormcast Vindictor</option>
+      <option value="gutrippa">Gutrippa</option>
+    </select> -->
+  </div>
+  <button id="attack-btn">Roll The Dice!</button>
+  <br>
+  <br>
+  <div>
+    <p>Hits:<span id="hit-box"></span></p>
+    <p>Wounds:<span id="wound-box"></span></p>
+    <p>Saving Throw:<span id="save-box"></span></p>
+    <p>Damage:<span id="damage-box"></span></p>
+  </div>
+</body>
+</html>

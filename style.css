@@ -1,0 +1,17 @@
+.fighter-image {
+  max-width: 200px;
+  max-width: 200px;
+}
+
+.flex {
+  display: flex;
+}
+
+#fighter-selector, #opponent-selector {
+  height: 25px;
+}
+
+#attack-btn {
+  padding: 5px;
+  margin: 5px;
+}
