@@ -1,32 +1,23 @@
-import { diceRoll, hitting, wounding, damage } from '../combat/combat.js'
+import { Model } from './model.js'
 
-let gutrippa = {
-  name: "Gutrippa",
-  unitSize: 10,
-  wounds: 2,
-  save: 5,
-  bravery: 5,
-  img: `./images/Gutrippa.png`,
-  sayName() {console.log(`I am a ${this.name}!`)},
-  attack(opponent) {
-    this.sayName();
-    console.log('Orruk is attacking!')
-    let attackRoll = diceRoll(gutrippa.meleeWeapon.attacks);
-    console.log(attackRoll);
-    let numHits = hitting(attackRoll, gutrippa);
-    let woundRoll = diceRoll(numHits);
-    console.log(woundRoll);
-    let numwounds = wounding(woundRoll, gutrippa);
-    damage(numwounds, gutrippa, opponent);
-  },
-  meleeWeapon: {
-    name: "Wicked Stikka",
-    attacks: 2,
-    toHit: 4,
-    toWound: 4,
-    rend: 0,
-    dmg: 1
+class Gutrippa extends Model {
+  constructor() {
+    super()
+    this.name = "Gutrippa";
+    this.unitSize = 10;
+    this.wounds = 2;
+    this.save = 5;
+    this.bravery = 5;
+    this.img = `./images/Gutrippa.png`;
+    this.meleeWeapon = {
+      name: "Wicked Hakka",
+      attacks: 2,
+      toHit: 4,
+      toWound: 3,
+      rend: 0,
+      dmg: 1
+    }
   }
 };
 
-export { gutrippa }
+export { Gutrippa }

@@ -1,5 +1,5 @@
 import { StormcastVindictor } from "./armies/stormcast.js";
-import { gutrippa } from "./armies/orrukWarclans.js";
+import { Gutrippa } from "./armies/orrukWarclans.js";
 
 const fimgBox = document.querySelector('#fighterimage');
 
@@ -17,21 +17,21 @@ pickFighter.addEventListener('change', function() {
   if (pickFighter.value === 'stormcastVindictor') {
     opponentName.innerText = 'Opponent: ';
     let pickedFighter = new StormcastVindictor();
+    let opponent = new Gutrippa();
     fimgBox.src=`${pickedFighter.img}`;
-    oimgBox.src=`${gutrippa.img}`;
+    oimgBox.src=`${opponent.img}`;
     opponentName.innerText = "Opponent: Gutrippa";
-    let opponent = gutrippa;
-    console.log(pickFighter);
+    console.log(pickedFighter);
     button.addEventListener('click', function() {
       pickedFighter.attack(opponent);
     })
   } else if (pickFighter.value === 'gutrippa') {
     opponentName.innerText = 'Opponent: ';
-    fimgBox.src=`${gutrippa.img}`;
-    oimgBox.src=`${stormcastVindictor.img}`;
+    let pickedFighter = new Gutrippa();
+    let opponent = new StormcastVindictor();
+    fimgBox.src=`${pickedFighter .img}`;
+    oimgBox.src=`${opponent.img}`;
     opponentName.innerText = "Opponent: Stormcast Vindictor";
-    let pickedFighter = gutrippa;
-    let opponent = stormcastVindictor;
     button.addEventListener('click', function() {
       pickedFighter.attack(opponent)
     })
