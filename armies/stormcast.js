@@ -1,22 +1,27 @@
-import { diceRoll, hitting, wounding, damage } from '../combat/combat.js'
+import { diceRoll, hitting, wounding, damage } from '../combat/combat.js';
+import { Model } from './model.js'
 
-let stormcastVindictor = {
+function StormcastVindictor() { }
+
+StormcastVindictor.prototype = Object.create(Model.prototype);
+StormcastVindictor.prototype.constructor = StormcastVindictor;
+ StormcastVindictor.prototype = {
   name: "Stormcast Vindictor",
   unitSize: 5,
   wounds: 2,
   save: 3,
   bravery: 7,
   img: `./images/SC-Vindictor.png`,
-  sayName: function() {return `I am a ${this.name}!`},
-  attack: function(opponent) {
+  attack(opponent) {
+    this.sayName();
     console.log('Stormcast is attacking!');
-    let attackRoll = diceRoll(stormcastVindictor.meleeWeapon.attacks);
+    let attackRoll = diceRoll(this.meleeWeapon.attacks);
     console.log(attackRoll);
-    let numHits = hitting(attackRoll, stormcastVindictor);
+    let numHits = hitting(attackRoll, this);
     let woundRoll = diceRoll(numHits);
     console.log(woundRoll);
-    let numwounds = wounding(woundRoll, stormcastVindictor);
-    damage(numwounds, stormcastVindictor, opponent)
+    let numwounds = wounding(woundRoll, this);
+    damage(numwounds, this, opponent)
   },
   meleeWeapon: {
     name: "Stormspear",
@@ -28,4 +33,4 @@ let stormcastVindictor = {
   }
 };
 
-export { stormcastVindictor }
+export { StormcastVindictor }

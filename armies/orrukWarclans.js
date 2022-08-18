@@ -7,8 +7,9 @@ let gutrippa = {
   save: 5,
   bravery: 5,
   img: `./images/Gutrippa.png`,
-  sayName: function() {return `I am a ${this.name}!`},
-  attack: function(opponent) {
+  sayName() {console.log(`I am a ${this.name}!`)},
+  attack(opponent) {
+    this.sayName();
     console.log('Orruk is attacking!')
     let attackRoll = diceRoll(gutrippa.meleeWeapon.attacks);
     console.log(attackRoll);
